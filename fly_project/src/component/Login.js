@@ -1,32 +1,12 @@
-import React from 'react';
-import useLocalStorage from './Uselocalstorage';
-
-
-export default function LoginPage() {
-    const [username, setUsername] = useLocalStorage('username', '');
-    const [password, setPassword] = useLocalStorage('password', '');
-
-
-
-    const handleLogin = () => {
-
-    };
+function Login({onSubmit}) { 
 
     return (
-        <div>
-            <input
-                type="text"
-                placeholder="Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-            />
-            <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            <button onClick={handleLogin}>Login</button>
-        </div>
+        <><h1>Veuillez vous connecter.</h1><form onSubmit={onSubmit}>
+            <input id="login"></input>
+            <input id='password'></input>
+            <button>Valider</button>
+        </form></>
     );
 }
+
+export default Login;

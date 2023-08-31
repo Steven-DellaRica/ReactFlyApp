@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import useLocalStorage from './Uselocalstorage';
 
 export default function Personnes() {
-    const [datas, setDatas] = useState([]);
+    const [datas, setDatas] = useLocalStorage('userDatas', []);
 
     useEffect(() => {
         fetchdata();
@@ -15,17 +16,17 @@ export default function Personnes() {
 
     console.log(datas);
 
-    useEffect(() => {
-        localStorage.setItem();
-    }, [datas]);
 
     return (
         <div>
             {datas.map((data, index) => (
                 <div key={index}>
-                     {data.username}
-                     {data.email}
+                     UserName:{data.username}
+                     Name: {data.name.firstname}, {data.name.lastname}, {data.phone}
+                     Email:{data.email}
                      {data.password}
+                     Adresse:{data.address.city}, {data.address.street}, {data.address.number}, {data.address.zipcode}
+                     ID:{data.id}
                     
                 </div>
             ))}
