@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import "../style/App.css";
+
 import Calendrier from "./Calendar";
 import Reservation from "./Reservation";
 import Geolocalisation from "./Geolocalisation";
