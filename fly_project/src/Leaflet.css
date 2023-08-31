@@ -1,0 +1,19 @@
+.map-container
+{
+    display: flex;
+    justify-content: center;
+}
+
+.map
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.leaflet-container 
+{
+    width: 100vw;
+    height: 100vh;
+}
