@@ -1,19 +1,16 @@
 import React, { useState } from "react";
 import "../style/Calendar.css";
 import Calendar from "react-calendar";
+import { useParams } from "react-router-dom";
 
 export default function Calendrier() {
   const [newDate, setDate] = useState('');
 
-  // const date = new Date();
+  const {airportCode} = useParams();
 
-  // let currentDay = String(date.getDate()).padStart(2, "0");
+  // const [flights, setFlights] = useState({date}, {destination})
 
-  // let currentMonth = String(date.getMonth() + 1).padStart(2, "0");
-
-  // let currentYear = date.getFullYear();
-
-  // let currentDate = `${currentDay}-${currentMonth}-${currentYear}`;
+  // const [destination, setDestination] = useState({heure, price, companie, monculsurlacommode})
 
   const handleDateChange = (clickedDate) => {
     let currentDay = String(clickedDate.getDate()).padStart(2, "0");
@@ -29,7 +26,7 @@ export default function Calendrier() {
   const handleDateClick = () => {
     const formattedDate = newDate;
     console.log(formattedDate);
-    window.location.href = `/reservation/${formattedDate}`;
+    window.location.href = `/${airportCode}/${formattedDate}`;
   };
 
   return (
@@ -40,7 +37,7 @@ export default function Calendrier() {
       <div className="text-center">
         {console.log(newDate)}
         Selectionner une date: {newDate}
-        <button onClick={handleDateClick}>Reservation</button>
+        <button onClick={handleDateClick}>Voir vols</button>
       </div>
     </>
   );
