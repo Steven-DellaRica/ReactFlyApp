@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { FetchContext } from "./FetchUser";
 import Login from './Login';
 import { Link } from 'react-router-dom';
@@ -13,6 +13,7 @@ return (
   {loggedInUser ? (
       <>
         <h1>Bienvenue, {loggedInUser} !</h1>
+        <Link to="/">Retour</Link>
         <Link to="/"><button onClick={handleLogout}>Déconnexion</button></Link>
         
         

@@ -1,0 +1,39 @@
+.App {
+    margin: 0;
+    padding: 0;
+}
+
+
+.App-header {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav {
+    background-color: rgb(74, 137, 219);
+    display: flex;
+    justify-items: end;
+    justify-content: end;
+    max-height: 40px;
+}
+
+
+
+h2 {
+    margin-right: 3%;
+    margin-top: 0%;
+}
