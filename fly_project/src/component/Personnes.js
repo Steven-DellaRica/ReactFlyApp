@@ -1,35 +1,39 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import useLocalStorage from './Uselocalstorage';
+import { FetchContext } from './FetchUser';
 
 export default function Personnes() {
-    const [datas, setDatas] = useLocalStorage('userDatas', []);
+  const { data, loading, error, fetchData } = useContext(FetchContext);
 
-    useEffect(() => {
-        fetchdata();
-    }, []); 
+  const [datas, setDatas] = useLocalStorage('userDatas', []);
 
-    const fetchdata = () => {
-        fetch('https://fakestoreapi.com/users?limit=5')
-            .then((response) => response.json())
-            .then((data) => setDatas(data));
-    };
+  useEffect(() => {
+    fetchData(); 
+  }, []); 
 
-    console.log(datas);
+  console.log(datas);
 
-
-    return (
+  return (
+    <div>
+      {loading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p>Error: {error.message}</p>
+      ) : (
         <div>
-            {datas.map((data, index) => (
-                <div key={index}>
-                     UserName:{data.username}
-                     Name: {data.name.firstname}, {data.name.lastname}, {data.phone}
-                     Email:{data.email}
-                     {data.password}
-                     Adresse:{data.address.city}, {data.address.street}, {data.address.number}, {data.address.zipcode}
-                     ID:{data.id}
-                    
-                </div>
-            ))}
+          {datas.map((data, index) => (
+            <div key={index}>
+              UserName: {data.username}
+              Name: {data.name.firstname}, {data.name.lastname}
+              Phone: {data.phone}
+              Email: {data.email}
+              Adresse: {data.address.city}, {data.address.street}, {data.address.number}, {data.address.zipcode}
+              ID: {data.id}
+            </div>
+          ))}
         </div>
-    );
+      )}
+    </div>
+  );
+
 }

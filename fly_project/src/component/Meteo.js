@@ -38,7 +38,7 @@ export default function Meteo() {
         <div>
           <p>Ville: {weatherData.name}</p>
           <p>Température: {kelvinToCelsius(weatherData.main.temp)} °C</p>
-          <p>Ville: {noeudsToKmh(weatherData.wind.speed)}km/h</p>
+          <p>Vitesse du vent: {noeudsToKmh(weatherData.wind.speed)}km/h</p>
         </div>
       ) : (
         <p>Chargement ....</p>
