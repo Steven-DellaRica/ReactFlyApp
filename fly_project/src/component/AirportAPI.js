@@ -16,13 +16,6 @@ export default function AirportAPI() {
 
     console.log(airportInfoArray);
 
-    // if (userPosition) {
-    //     posLatitude = userPosition.latitude;
-    //     posLongitude = userPosition.longitude;
-    //     map.setView(posLatitude, posLongitude);
-    // }
-
-
     return (
         <div className="map-container">
             <div className='map'>
