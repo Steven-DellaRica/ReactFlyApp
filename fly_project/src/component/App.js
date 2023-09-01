@@ -1,7 +1,8 @@
 import { Link, Route, Routes } from "react-router-dom";
 import Calendrier from "./Calendar";
 import Reservation from "./Reservation";
-import Geolocalisation from "./Geolocalisation";
+import { ContextAirportsProvider } from './ContextAirports';
+import AirportAPI from './AirportAPI'
 import Personnes from "./Personnes";
 import Meteo from "./Meteo";
 import { useState } from "react";
@@ -19,13 +20,16 @@ function App() {
     <div className="App">
       <header className="App-header">
         <>
-          <Routes>
-            <Route path="/" element={<AirportAPI/>}/>
-            <Route path="/calendrier" element={<Calendrier />} />
-            <Route path="/reservation/:date" element={<Reservation />} />
-            <Route path="/profile/:username" element={<Profile />} />
-            <Route path="/coucoujaifaim" element={<Login />} />
-          </Routes>
+          <ContextAirportsProvider>
+
+            <Routes>
+              <Route path="/" element={<AirportAPI />} />
+              <Route path="/:airportCode" element={<Calendrier />} />
+              <Route path="/:airportCode/:date" element={<Reservation />} />
+              <Route path="/profile/:username" element={<Profile />} />
+              <Route path="/Login" element={<Login />} />
+            </Routes>
+          </ContextAirportsProvider>
         </>
       </header>
     </div>
