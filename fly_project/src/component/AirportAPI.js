@@ -1,6 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { useContext } from 'react';
 import { AirportsArray } from './ContextAirports';
+import Login from './Login';
 import ChangeView from './ChangeView';
 import { Link } from "react-router-dom";
 import '../style/Leaflet.css'
@@ -17,8 +18,9 @@ export default function AirportAPI() {
     console.log(airportInfoArray);
 
     return (
-        <div className="map-container">
-            <div className='map'>
+        <div className="App">
+            <div className='App-header'>
+                <Login />
 
                 <MapContainer center={[posLatitude, posLongitude]} zoom={12} scrollWheelZoom={true}>
                     <ChangeView center={[posLatitude, posLongitude]} zoom={12} />

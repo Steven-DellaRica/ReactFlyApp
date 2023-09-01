@@ -21,6 +21,7 @@ export function FetchProvider({ children }) {
       }
 
       const fetchedData = await response.json();
+      console.log(fetchedData)
       setData(fetchedData);
       setLoading(false);
     } catch (error) {
