@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-
 import Calendrier from "./Calendar";
 import Reservation from "./Reservation";
-import Geolocalisation from "./Geolocalisation";
+import { ContextAirportsProvider } from './ContextAirports';
+import AirportAPI from './AirportAPI'
 import Personnes from "./Personnes";
 
 function App() {
@@ -10,12 +10,14 @@ function App() {
     <div className="App">
       <header className="App-header">
         <>
-          <Geolocalisation />
+          <ContextAirportsProvider>
 
-          <Routes>
-            <Route path="/" element={<Calendrier />} />
-            <Route path="/reservation/:date" element={<Reservation />} />
-          </Routes>
+            <Routes>
+              <Route path="/" element={<AirportAPI />} />
+              <Route path="/:airportCode" element={<Calendrier />} />
+              <Route path="/:airportCode/:date" element={<Reservation />} />
+            </Routes>
+          </ContextAirportsProvider>
         </>
       </header>
     </div>
